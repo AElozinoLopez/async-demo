@@ -16,6 +16,7 @@
 // They are used to get back a value from an asynchronous function
 
 // CALLBACKS
+// Calling a user from teh database using a callback
 console.log("Before");
 getUser(1, function(user){
     console.log(user);
@@ -28,4 +29,32 @@ function getUser(id, callback) {
         callback ({id: id, gitHubUserName: "ElozinoLopez"})    // replace return with callback
         
     }, 3000)
+}
+
+function getRepositories() {
+    return ["Repo1", "Repo2", "Repo3"]
+}
+
+
+// Calling the repo of the user from github
+
+console.log("Before");
+getUser(1, function(user){
+    console.log('User:', user);
+getRepositories(user.gitHubUserName, repos)
+});
+console.log("After");
+
+function getUser(id, callback) {
+    setTimeout(() => {
+        console.log("Getting a user from the database");
+        callback ({id: id, gitHubUserName: "ElozinoLopez"})    // replace return with callback        
+    }, 3000)
+}
+
+function getRepositories(user, callback) {
+    setTimeout(() => {
+        console.log("Calling GitHub API...");
+        callback(["Repo1", "Repo2", "Repo3"]);
+    }, 2000)    
 }
