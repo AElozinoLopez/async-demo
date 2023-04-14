@@ -76,3 +76,47 @@ function getUserCommits (repos, callback) {
     }, 3000)    
 }
 
+// RESOLVING CALLBACK HELL (CHRISTMAS TREE) PROBLEM
+// To do this, we use the name function. Here, we replace the anonymous functions with a named function
+
+console.log("Before");
+// get user
+getUser(1, function(user){
+    console.log('User:', user);
+// get user repositories form github
+    getRepositories(user.gitHubUserName, (repos) => {
+        console.log(('Repos:', repos));
+// get user commits
+        getUserCommits(repos, (commits) => {
+            console.log('Commits:', commits);
+        })
+    })
+});
+console.log("After");
+
+function getUser(id, callback) {
+    setTimeout(() => {
+        console.log("Getting a user from the database");
+        callback ({id: id, gitHubUserName: "ElozinoLopez"})    // replace return with callback        
+    }, 3000)
+}
+
+function getRepositories(user, callback) {
+    setTimeout(() => {
+        console.log("Calling GitHub API...");
+        callback(["Repo1", "Repo2", "Repo3"]);
+    }, 2000)    
+}
+
+// Add a function to get all the commits from the user repo
+
+function getUserCommits (repos, callback) {
+    setTimeout (() => {
+        console.log('Calling user commits...');
+        callback(["Commit1", "Commit2", "Commit3"])
+    }, 3000)    
+}
+
+function displayCommits(commits) {
+    console.log(commit);
+}
