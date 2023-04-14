@@ -13,6 +13,7 @@
 
 // To get the return object we have to use any of the methods for dealing with asynchronous codes.
 // These methods are: Callbacks, Promises, and Async and Await
+// They are used to get back a value from an asynchronous function
 
 // CALLBACKS
 console.log("Before");
