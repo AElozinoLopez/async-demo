@@ -16,11 +16,10 @@
 
 // CALLBACKS
 console.log("Before");
-const user = getUser(1, function(user){
+getUser(1, function(user){
     console.log(user);
 });
 console.log("After");
-console.log("The third");
 
 function getUser(id, callback) {
     setTimeout(() => {
