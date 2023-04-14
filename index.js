@@ -60,3 +60,13 @@ function getRepositories(user, callback) {
         callback(["Repo1", "Repo2", "Repo3"]);
     }, 2000)    
 }
+
+// Add a functon to get all the commits from the user repo
+
+function getUserCommits (user, callback) {
+    setTimeout (() => {
+        console.log('Calling user commits...');
+        callback(["Commit1", "Commit2", "Commit3"])
+    }, 3000)    
+}
+
