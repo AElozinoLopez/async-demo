@@ -87,9 +87,7 @@ getUser(1, function(user){
     getRepositories(user.gitHubUserName, (repos) => {
         console.log(('Repos:', repos));
 // get user commits
-        getUserCommits(repos, (commits) => {
-            console.log('Commits:', commits);
-        })
+        getUserCommits(repos, displayCommits)
     })
 });
 console.log("After");
@@ -117,6 +115,53 @@ function getUserCommits (repos, callback) {
     }, 3000)    
 }
 
+// Commits named function
 function displayCommits(commits) {
-    console.log(commit);
+    console.log(commits);
 }
+
+
+// getRepositories named function application
+
+console.log("Before");
+// get user
+getUser(1, function(user){
+    console.log('User:', user);
+// get user repositories form github
+    getRepositories(user.gitHubUserName, getRepositories);
+});
+console.log("After");
+
+function getUser(id, callback) {
+    setTimeout(() => {
+        console.log("Getting a user from the database");
+        callback ({id: id, gitHubUserName: "ElozinoLopez"})    // replace return with callback        
+    }, 3000)
+}
+
+function getRepositories(user, callback) {
+    setTimeout(() => {
+        console.log("Calling GitHub API...");
+        callback(["Repo1", "Repo2", "Repo3"]);
+    }, 2000)    
+}
+
+// Add a function to get all the commits from the user repo
+
+function getUserCommits (repos, callback) {
+    setTimeout (() => {
+        console.log('Calling user commits...');
+        callback(["Commit1", "Commit2", "Commit3"])
+    }, 3000)    
+}
+
+// Commits named function
+function displayCommits(commits) {
+    console.log(commits);
+}
+
+// getRepositories named function
+function getRepositories(user){
+    getRepositories(user.gitHubUserName, getUserCommits);
+}
+
