@@ -8,5 +8,5 @@ const p = new Promise(function(resolve, reject) {
     reject(new Error("Fail!"));
 });
 
-p.then(result => console.log(result));  // p.then gives us access to the successful operation and we can log it
+// p.then(result => console.log(result));  // p.then gives us access to the successful operation and we can log it
 p.catch(err => console.log('Error', err.message));
