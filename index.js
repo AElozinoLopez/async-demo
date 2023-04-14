@@ -5,6 +5,6 @@ console.log("The third");
 
 function getUser(id) {
     setTimeout(() => {
-        console.log("Getting a user from the database");
+        console.log("Getting a user from the database", id);
     }, 3000)
 }
