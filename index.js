@@ -39,11 +39,17 @@ function getRepositories() {
 // Calling the repo of the user from github
 
 console.log("Before");
+// get user
 getUser(1, function(user){
     console.log('User:', user);
-getRepositories(user.gitHubUserName, (repos) => {
-    console.log(('Repos:', repos));
-})
+// get user repositories form github
+    getRepositories(repos.gitHubUserName, (repos) => {
+        console.log(('Repos:', repos));
+// get user commits
+        getUserCommits(user.gitHubUserName, (commits) => {
+            console.log('Commits:', commits);
+        })
+    })
 });
 console.log("After");
 
@@ -63,7 +69,7 @@ function getRepositories(user, callback) {
 
 // Add a functon to get all the commits from the user repo
 
-function getUserCommits (user, callback) {
+function getUserCommits (repos, callback) {
     setTimeout (() => {
         console.log('Calling user commits...');
         callback(["Commit1", "Commit2", "Commit3"])
