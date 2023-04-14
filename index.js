@@ -43,7 +43,7 @@ console.log("Before");
 getUser(1, function(user){
     console.log('User:', user);
 // get user repositories form github
-    getRepositories(user.gitHubUserName, (repos) => {
+    getRepositories(user, (repos) => {
         console.log(('Repos:', repos));
 // get user commits
         getUserCommits(repos, (commits) => {
