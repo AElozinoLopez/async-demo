@@ -116,7 +116,7 @@ function getUserCommits (repos) {
     return new Promise ((resolve, reject) => {
         setTimeout (() => {
             console.log('Calling user commits...');
-            callback(["Commit1", "Commit2", "Commit3"])
+            resolve(["Commit1", "Commit2", "Commit3"])
         }, 3000)
     })        
 }
