@@ -36,6 +36,17 @@ function getUsers() {
                 {username: "ElozinoLopez", email: "elozinolopez@gmail.com"},
                 {username: "Faruq Hameed", email: "faruqismelendes@gmail.com"},
             ])
-        })
+        }, 5000)
     })
 }
+
+// setting the property to be printable output when onFulfilled executes
+function onFulfilled(){
+    console.log(users);
+}
+
+// assigning the selected printable output to the getUser function
+const promis = getUsers(users);
+
+// consuming the promise
+promis.then(onFulfilled);
