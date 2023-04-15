@@ -49,7 +49,7 @@ const theFirstApi = new Promise((resolve) => {
 })
 
 // Calling the second api
-const secondApi = new Promise((resolve) => {
+const theSecondApi = new Promise((resolve) => {
     setTimeout(() => {
         console.log('Calling the second API')
         resolve(2)
