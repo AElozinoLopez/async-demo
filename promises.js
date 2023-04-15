@@ -114,11 +114,10 @@ Add a function to get all the commits from the user repo
 
 function getUserCommits (repos) {
     return new Promise ((resolve, reject) => {
-
-    })
-    setTimeout (() => {
-        console.log('Calling user commits...');
-        callback(["Commit1", "Commit2", "Commit3"])
-    }, 3000)    
+        setTimeout (() => {
+            console.log('Calling user commits...');
+            callback(["Commit1", "Commit2", "Commit3"])
+        }, 3000)
+    })        
 }
 
