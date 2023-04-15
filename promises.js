@@ -101,18 +101,18 @@ function getUser(id) {
     
 }
 
-function getRepositories(user, callback) {
+function getRepositories(user) {
     return new Promise ((resolve, reject) => {
         setTimeout(() => {
             console.log("Calling GitHub API...");
-            callback(["Repo1", "Repo2", "Repo3"]);
+            resolve(["Repo1", "Repo2", "Repo3"]);
         }, 2000) 
     })       
 }
 
 Add a function to get all the commits from the user repo
 
-function getUserCommits (repos, callback) {
+function getUserCommits (repos) {
     setTimeout (() => {
         console.log('Calling user commits...');
         callback(["Commit1", "Commit2", "Commit3"])
