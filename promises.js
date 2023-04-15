@@ -41,12 +41,12 @@ function getUsers() {
 }
 
 // setting the property to be printable output when onFulfilled executes
-function onFulfilled(){
+function onFulfilled(users){
     console.log(users);
 }
 
 // assigning the selected printable output to the getUser function
-const promis = getUsers(users);
+const promis = getUsers();
 
 // consuming the promise
 promis.then(onFulfilled);
