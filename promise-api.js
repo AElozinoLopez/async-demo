@@ -33,5 +33,5 @@ const secondApi = new Promise((resolve) => {
 
 // Calling both promises. This makes use of the .all() method of promise and it returns an array of objects
 Promise.all([firstApi, secondApi])
-    then(result => console.log(result))
+    .then(result => console.log(result))
 
