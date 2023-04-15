@@ -35,3 +35,27 @@ const secondApi = new Promise((resolve) => {
 Promise.all([firstApi, secondApi])
     .then(result => console.log(result))
 
+// assunming you want to use the result of one of the promises as soon as it is called,
+// use the promise.race() method
+
+// Example
+
+// Calling the first api
+const theFirstApi = new Promise((resolve) => {
+    setTimeout(() => {
+        console.log('Calling the very first API...')
+        resolve(1)
+    })
+})
+
+// Calling the second api
+const secondApi = new Promise((resolve) => {
+    setTimeout(() => {
+        console.log('Calling the second API')
+        resolve(2)
+    })
+})
+
+// Calling both promises. This makes use of the .all() method of promise and it returns an array of objects
+Promise.all([firstApi, secondApi])
+    .then(result => console.log(result))
