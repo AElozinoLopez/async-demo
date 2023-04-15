@@ -55,31 +55,19 @@ promis.then(onFulfilled);
 // REPLACING A CALLBACK WITH A PROMISE EXAMPLE
 // Here, we are replacing the callbacks in index.js with promise
 
-// console.log("Before");
-// getUser(1, function(user){
-//     console.log(user);
-// });
-// console.log("After");
 
-// function getUser(id, callback) {
-//     setTimeout(() => {
-//         console.log("Getting a user from the database");
-//         callback ({id: id, gitHubUserName: "ElozinoLopez"})    // replace return with callback
-        
-//     }, 3000)
-// }
-
-// function getRepositories() {
-//     return ["Repo1", "Repo2", "Repo3"]
-// }
-
-
-// Calling the repo of the user from github
 
 console.log("Before");
 // get user
-const thePromise = getUser(1);
-thePromise.then(user => console.log(user));
+// const thePromise = getUser(1);          // assigned the getUser to a variable
+// thePromise.then(user => console.log(user));  //using the then method to consume the promises
+
+// line 62 and 63 expantiated
+getUser(1)
+    .then(user => getRepositories(user.getRepositories))
+    .then(repos => getUserCommits(repos[0]))
+    .then(getUserCommits => console.log('commits', getUserCommits))
+
 
 console.log("After");
 
