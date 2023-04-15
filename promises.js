@@ -78,17 +78,9 @@ promis.then(onFulfilled);
 
 console.log("Before");
 // get user
-getUser(1, function(user){
-    console.log('User:', user);
-// get user repositories form github
-    getRepositories(user.gitHubUserName, (repos) => {
-        console.log(('Repos:', repos));
-// get user commits
-        getUserCommits(repos, (commits) => {
-            console.log('Commits:', commits);
-        })
-    })
-});
+const thePromise = getUser(1);
+// thePromise.then(user => console.log(user));
+
 console.log("After");
 
 function getUser(id) {
@@ -97,8 +89,7 @@ function getUser(id) {
             console.log("Getting a user from the database");
             resolve ({id: id, gitHubUserName: "ElozinoLopez"})          
         }, 3000)
-    })
-    
+    })    
 }
 
 function getRepositories(user) {
@@ -110,7 +101,7 @@ function getRepositories(user) {
     })       
 }
 
-Add a function to get all the commits from the user repo
+// Add a function to get all the commits from the user repo
 
 function getUserCommits (repos) {
     return new Promise ((resolve, reject) => {
