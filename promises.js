@@ -79,7 +79,7 @@ promis.then(onFulfilled);
 console.log("Before");
 // get user
 const thePromise = getUser(1);
-// thePromise.then(user => console.log(user));
+thePromise.then(user => console.log(user));
 
 console.log("After");
 
