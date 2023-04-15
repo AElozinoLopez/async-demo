@@ -22,3 +22,10 @@ const firstApi = new Promise((resolve) => {
     })
 })
 
+const secondApi = new Promise((resolve) => {
+    setTimeout(() => {
+        console.log('Calling the second API')
+        resolve(2)
+    })
+})
+
