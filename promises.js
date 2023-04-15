@@ -21,6 +21,21 @@ const promise = new Promise(function(resolve, reject) {
     }
 });
 
+// YOu use a .then method and the .catch method to consume a promise
+// The .then methos accepts two callback functions  - onFulfilled and onRejected  - promise.then(onFulfilled, onRejected) both of these are optional
 promise
     .then(result => console.log(result))
     .catch(error => console.log('Error', error.message));
+
+
+// ANOTHER EXAMPLE
+function getUsers() {
+    return new Promise((resolve, reject) => {
+        setTimeout (() => {
+            resolve([
+                {username: "ElozinoLopez", email: "elozinolopez@gmail.com"},
+                {username: "Faruq Hameed", email: "faruqismelendes@gmail.com"},
+            ])
+        })
+    })
+}
