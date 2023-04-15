@@ -1,5 +1,8 @@
 // Creating Settled Promises
 
-const p = Promise.resolve (1);
+const resolvedPromise = Promise.resolve (1);
 
-p.then(result => console.log(result))
+resolvedPromise.then(result => console.log(result))
+
+// Creating a Rejected Promise
+
