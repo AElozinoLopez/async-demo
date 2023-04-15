@@ -62,11 +62,12 @@ console.log("Before");
 // const thePromise = getUser(1);          // assigned the getUser to a variable
 // thePromise.then(user => console.log(user));  //using the then method to consume the promises
 
-// line 62 and 63 expantiated
+// line 62 and 63 expantiated in line 66 to 69
 getUser(1)
     .then(user => getRepositories(user.getRepositories))
     .then(repos => getUserCommits(repos[0]))
     .then(getUserCommits => console.log('commits', getUserCommits))
+    .catch(err => console.log(err.message))  //you have to call the .catch method after consuming teh promise so that if there is an error in any of them, it will catch teh error
 
 
 console.log("After");
