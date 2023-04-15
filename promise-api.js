@@ -45,7 +45,7 @@ const theFirstApi = new Promise((resolve) => {
     setTimeout(() => {
         console.log('Calling the very first API...')
         resolve(1)
-    })
+    }, 3000)
 })
 
 // Calling the second api
@@ -53,7 +53,7 @@ const theSecondApi = new Promise((resolve) => {
     setTimeout(() => {
         console.log('Calling the second API')
         resolve(2)
-    })
+    }, 2000)
 })
 
 // Calling both promises. This makes use of the .all() method of promise and it returns an array of objects
