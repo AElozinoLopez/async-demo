@@ -106,3 +106,12 @@ function getUserCommits (repos) {
     })        
 }
 
+
+// USING A 3RD PARTY LIBRARY FOR CONSUMING APIs
+// Install axios
+// Require it... and then fetch the desired api url
+
+const URL = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m";
+axios.get(URL)
+    .then(value => console.log(value.data))
+    .catch(err => console.log(err.message))
