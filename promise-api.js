@@ -57,5 +57,5 @@ const theSecondApi = new Promise((resolve) => {
 })
 
 // Calling both promises. This makes use of the .all() method of promise and it returns an array of objects
-Promise.all([firstApi, secondApi])
+Promise.race([theFirstApi, theSecondApi])
     .then(result => console.log(result))
