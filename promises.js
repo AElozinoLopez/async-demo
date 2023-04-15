@@ -91,11 +91,11 @@ getUser(1, function(user){
 });
 console.log("After");
 
-function getUser(id, callback) {
+function getUser(id) {
     return new Promise ((resolve, reject) => {
         setTimeout(() => {
             console.log("Getting a user from the database");
-            callback ({id: id, gitHubUserName: "ElozinoLopez"})    // replace return with callback        
+            resolve ({id: id, gitHubUserName: "ElozinoLopez"})          
         }, 3000)
     })
     
