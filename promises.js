@@ -1,3 +1,6 @@
+const axios = require('axios');
+
+
 // Creating the promise object
 // const p = new Promise((resolve, reject) => {
 
@@ -61,6 +64,8 @@ console.log("Before");
 // get user
 // const thePromise = getUser(1);          // assigned the getUser to a variable
 // thePromise.then(user => console.log(user));  //using the then method to consume the promises
+// .catch(err => console.log(err.message)) 
+
 
 // line 62 and 63 expantiated in line 66 to 69
 getUser(1)
