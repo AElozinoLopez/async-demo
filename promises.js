@@ -115,3 +115,56 @@ const URL = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.
 axios.get(URL)
     .then(value => console.log(value.data))
     .catch(err => console.log(err.message))
+
+
+
+// USING ASYNC and AWAIT
+
+
+console.log("Before");
+// get user
+// const thePromise = getUser(1);          // assigned the getUser to a variable
+// thePromise.then(user => console.log(user));  //using the then method to consume the promises
+// .catch(err => console.log(err.message)) 
+
+
+// line 62 and 63 expantiated in line 66 to 69
+getUser(1)
+    .then(user => getRepositories(user.getRepositories))
+    .then(repos => getUserCommits(repos[0]))
+    .then(getUserCommits => console.log('commits', getUserCommits))
+    .catch(err => console.log(err.message))  //you have to call the .catch method after consuming teh promise so that if there is an error in any of them, it will catch teh error
+
+
+console.log("After");
+
+function getUser(id) {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Getting a user from the database");
+            resolve ({id: id, gitHubUserName: "ElozinoLopez"})          
+        }, 3000)
+    })    
+}
+
+function getRepositories(user) {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Calling GitHub API...");
+            resolve(["Repo1", "Repo2", "Repo3"]);
+        }, 2000) 
+    })       
+}
+
+// Add a function to get all the commits from the user repo
+
+function getUserCommits (repos) {
+    return new Promise ((resolve, reject) => {
+        setTimeout (() => {
+            console.log('Calling user commits...');
+            resolve(["Commit1", "Commit2", "Commit3"])
+        }, 3000)
+    })        
+}
+
+
