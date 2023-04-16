@@ -129,7 +129,10 @@ getUser(1)
     .then(getUserCommits => console.log('commits', getUserCommits))
     .catch(err => console.log(err.message)) 
 
-// applying the async and await
+// applying the async and await to the .then block of the promises
+async function displayCommits(){
+
+}
 const user = await getUser(1)
 const repos = await getRepositories(user.getRepositories)
 const commits = await getUserCommits(repos[0])
