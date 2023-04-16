@@ -111,10 +111,10 @@ function getUserCommits (repos) {
 // Install axios
 // Require it... and then fetch the desired api url
 
-// const URL = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m`;
-// axios.get(URL)
-//     .then(value => console.log(value.data))
-//     .catch(err => console.log(err.message))
+const URL = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m`;
+axios.get(URL)
+    .then(value => console.log(value.data))
+    .catch(err => console.log(err.message))
 
 
 
@@ -136,11 +136,16 @@ async function displayCommits(){
     const commits = await getUserCommits(repos[0])
     console.log('The commits', commits);
 
+    // Applying the async and await to the axios function and
     // dropping the axios here to which the await operator has been applied
     const URL = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m`;
     const result = await axios.get(URL)
     console.log(result.data);
-}
+
+    // Since we are getting a data object, We can destructure line 142 and 143 to read as bellow
+    // const { data } = await axios.get(URL)
+    // console.log(data)
+}   
 
 displayCommits()
 
@@ -179,7 +184,7 @@ function getUserCommits (repos) {
 }
 
 
-// Applying the async and await to the axios function
+
 
 
     
