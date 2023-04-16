@@ -184,6 +184,66 @@ function getUserCommits (repos) {
 }
 
 
+// HOW TO RETURN THE ERROR WHEN USING ASYNC AND AWAIT
+// We use the try catch block to achieve this. Seen as below
+
+console.log("The section for the try catch block begins here...");
+console.log("Before the Try Catch Block");
+
+getUser(1)
+    .then(user => getRepositories(user.getRepositories))
+    .then(repos => getUserCommits(repos[0]))
+    .then(getUserCommits => console.log('commits', getUserCommits))
+    .catch(err => console.log(err.message)) 
+
+// applying try catch block to the async and await block
+// to collect the error, we place the resoled promises in the try block and place the error in the catch block
+async function displayCommits(){
+    try {    
+        const user = await getUser(1)
+        const repos = await getRepositories(user.getRepositories)
+        const commits = await getUserCommits(repos[0])
+        console.log('The commits', commits);  
+    } catch(err){
+        console.log('The Try Catch Error ', err.message);
+    }
+  
+}   
+
+displayCommits()
+
+console.log("After");
+
+function getUser(id) {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Getting a user from the database");
+            resolve ({id: id, gitHubUserName: "ElozinoLopez"})          
+        }, 3000)
+    })    
+}
+
+function getRepositories(user) {
+    return new Promise ((resolve, reject) => {
+        setTimeout(() => {
+            console.log("Calling GitHub API...");
+            resolve(["Repo1", "Repo2", "Repo3"]);
+        }, 2000) 
+    })       
+}
+
+// Add a function to get all the commits from the user repo
+
+function getUserCommits (repos) {
+    return new Promise ((resolve, reject) => {
+        setTimeout (() => {
+            console.log('Calling user commits...');
+            reject(new Error('Trowing this error from the try catch block section'))
+        }, 3000)
+    })        
+}
+
+
 
 
 
