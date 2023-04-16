@@ -135,6 +135,11 @@ async function displayCommits(){
     const repos = await getRepositories(user.getRepositories)
     const commits = await getUserCommits(repos[0])
     console.log('The commits', commits);
+
+    // dropping the axios here to which the await operator has been applied
+    const URL = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m`;
+    const result = await axios.get(URL)
+    console.log(result.data);
 }
 
 displayCommits()
@@ -176,7 +181,5 @@ function getUserCommits (repos) {
 
 // Applying the async and await to the axios function
 
-const URL = `https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m`;
-const result = await axios.get(URL)
-console.log(result.data);
+
     
