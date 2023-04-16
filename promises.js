@@ -127,7 +127,14 @@ getUser(1)
     .then(user => getRepositories(user.getRepositories))
     .then(repos => getUserCommits(repos[0]))
     .then(getUserCommits => console.log('commits', getUserCommits))
-    .catch(err => console.log(err.message))  //you have to call the .catch method after consuming teh promise so that if there is an error in any of them, it will catch teh error
+    .catch(err => console.log(err.message)) 
+
+// applying the async and await
+const user = await getUser(1)
+const repos = await getRepositories(user.getRepositories)
+const commits = await getUserCommits(repos[0])
+console.log('The commits', commits);
+
 
 
 console.log("After");
