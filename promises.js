@@ -137,6 +137,8 @@ async function displayCommits(){
     console.log('The commits', commits);
 }
 
+displayCommits()
+
 
 
 
